@@ -1,0 +1,27 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "dist/ProjectSilk/server/main.js",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "dist/ProjectSilk/browser/(.*)",
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*\\.(js|css|png|jpg|jpeg|gif|svg|webp|ico|woff2|woff|ttf|eot|otf|map))",
+      "dest": "dist/ProjectSilk/browser/$1"
+    },
+    {
+      "src": "/assets/(.*)",
+      "dest": "dist/ProjectSilk/browser/assets/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "dist/ProjectSilk/server/main.js"
+    }
+  ]
+}

@@ -2,13 +2,13 @@
   "name": "project-silk",
   "version": "0.0.0",
   "scripts": {
-    "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
-    "watch": "ng build --watch --configuration development",
-    "test": "ng test",
-    "serve:ssr:ProjectSilk": "node dist/ProjectSilk/server/server.mjs"
-  },
+  "ng": "ng",
+  "start": "ng serve",
+  "build": "ng build",
+  "build:ssr": "ng build --configuration production && ng run ProjectSilk:server:production",
+  "serve:ssr": "node dist/ProjectSilk/server/main.js",
+  "postbuild": "cp -r dist/ProjectSilk/browser/* dist/ProjectSilk/"
+},
   "prettier": {
     "printWidth": 100,
     "singleQuote": true,
